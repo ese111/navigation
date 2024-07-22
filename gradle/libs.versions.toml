@@ -1,6 +1,6 @@
 [versions]
 agp = "8.3.2"
-kotlin = "1.9.23"
+kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -9,9 +9,8 @@ lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.9.0"
 composeBom = "2024.05.00"
 
-tmapUiSdk = "1.0.0.0072"
-tmpaUiSdk = "1.0.0.0072"
-flatbuffers = "1.12.0"
+tmapUiSdk = "1.0.0.0077"
+flatbuffers = "1.11.0"
 retrofit2 = "2.9.0"
 
 exoplayer = "2.17.1"
@@ -24,6 +23,11 @@ playServicesLocation = "17.0.0"
 lottie = "3.0.7"
 
 composeVersion = '1.3.1'
+constraintLayoutCompose = "1.0.1"
+material = "1.12.0"
+
+acompanistPermission = "0.34.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,33 +38,37 @@ androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecyc
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-viewbinding = { group = "androidx.compose.ui", name = "ui-viewbinding" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+android-material = { group = "com.google.android.material", name = "material", version.ref = "material"}
+
+tmap-ui = { group = "com.tmapmobility.tmap", name = "tmap-ui-sdk", version.ref = "tmapUiSdk" }
+flatbuffers = { group = "com.google.flatbuffers", name = "flatbuffers-java", version.ref = "flatbuffers" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2" }
+retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit2" }
+retrofit-adapter = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version.ref = "retrofit2" }
+
+exoplayer = { group = "com.google.android.exoplayer", name = "exoplayer", version.ref = "exoplayer" }
+exoplayer-core = { group = "com.google.android.exoplayer", name = "exoplayer-core", version.ref = "exoplayer" }
+exoplayer-ui = { group = "com.google.android.exoplayer", name = "exoplayer-ui", version.ref = "exoplayer" }
+
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "composeVersion" }
+compose-material = { group = "androidx.compose.material", name = "material", version.ref = "composeVersion" }
+compose-material-icons-core = { group = "androidx.compose.material", name = "material-icons-core", version.ref = "composeVersion" }
+compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "composeVersion" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
-tmap-ui = { group = "com.tmapmobility.tmap", name = "tmap-ui-sdk", version = "tmpaUiSdk" }
-flatbuffers = { group = "com.google.flatbuffers", name = "flatbuffers-java", version = "flatbuffers" }
-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version = "retrofit2" }
-retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version = "retrofit2" }
-retrofit-adapter = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version = "retrofit2" }
+constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintLayoutCompose" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
 
-exoplayer = { group = "com.google.android.exoplayer", name = "exoplayer-core", version = "exoplayer" }
-exoplayer-core = { group = "com.google.android.exoplayer", name = "exoplayer-core", version = "exoplayer" }
-exoplayer-ui = { group = "com.google.android.exoplayer", name = "exoplayer-ui", version = "exoplayer" }
-
-appcompat = { group = "androidx.appcompat", name = "appcompat", version = "appcompat" }
-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version = "composeVersion" }
-compose-material = { group = "androidx.compose.material", name = "material", version = "composeVersion" }
-compose-material-icons-core = { group = "androidx.compose.material", name = "material-icons-core", version = "composeVersion" }
-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version = "composeVersion" }
-
-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version = "1.0.1" }
-glide = { group = "com.github.bumptech.glide", name = "glide", version = "glide" }
-play-services-location = { group = "com.google.android.gms", name = "play-services-location", version = "playServicesLocation" }
-lottie = { group = "com.airbnb.android", name = "lottie", version = "lottie" }
+accompanist-permission = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "acompanistPermission" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

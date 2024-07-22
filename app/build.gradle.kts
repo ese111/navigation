@@ -1,11 +1,24 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
+val localProperties =
+    Properties().apply {
+        load(project.rootProject.file("local.properties").inputStream())
+    }
+
 android {
     namespace = "com.example.navigationsample"
     compileSdk = 34
+
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.example.navigationsample"
@@ -18,6 +31,9 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "TMAP_API_KEY", localProperties["TMAP_API_KEY"] as String)
+        buildConfigField("String", "TMAP_CLIENT_ID", localProperties["TMAP_CLIENT_ID"] as String)
     }
 
     buildTypes {
@@ -36,9 +52,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-    }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
@@ -47,23 +60,26 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    dataBinding {
+        enable = true
+    }
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
-
-    val compose_version = "1.3.1"
-    val compose_ui_version = "1.3.3"
-
-
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.viewbinding)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(files("libs/com.skt.Tmap_1.75.jar"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -95,4 +111,6 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.play.services.location)
     implementation(libs.lottie)
+
+    implementation(libs.accompanist.permission)
 }
